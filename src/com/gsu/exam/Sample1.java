@@ -5,8 +5,6 @@
  */
 
 
-
-
 package com.gsu.exam;
 
 import java.util.Scanner;
@@ -17,7 +15,6 @@ import java.util.Collections;
  *
  * @author Alexandre
  */
-
 
         
 public class Sample1 {
@@ -32,7 +29,7 @@ public class Sample1 {
         Scanner input = new Scanner(System.in);
         
         do {
-            System.out.print ("Please enter " + count + "....: ");            
+            System.out.print ("Please enter word #" + count + "....: ");            
             words.add(input.next());        
             
             count ++;
