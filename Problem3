@@ -1,0 +1,63 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.gsu.exam;
+
+/**
+ *
+ * @author ageraldo1
+ */
+
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+
+public class Problem3 {
+    
+    public static void main (String[] args) {
+          final int MAX_NUMBERS=3;
+          boolean flag = false;
+          String studentName;
+          String studentAddress;
+          String studentAge;
+          int count = 1;
+          
+          Queue<String> queue = new LinkedList<String>();
+          
+          Scanner input = new Scanner(System.in);
+          input.useDelimiter("\n");
+          
+          do {
+              System.out.print ("Enter the Student Name #" + count + ".....:");
+              studentName = input.next();
+              
+              System.out.print ("Enter the Student Address #" + count + "...:");
+              studentAddress = input.next();
+              
+              System.out.print ("Enter the Student Age #" + count + "...:");
+              studentAge = input.next();
+              
+              if ( Integer.parseInt(studentAge) >= 18 ) { 
+                  queue.add (studentName + "-" + studentAddress);
+              }
+              
+              count ++;
+              
+              
+              
+          } while ( count <=MAX_NUMBERS );
+          
+          System.out.println ("List of students above 18");
+          
+          while ( queue.isEmpty() == false) {
+              System.out.println (queue.poll());
+          }
+          
+          
+          
+    }
+    
+}
