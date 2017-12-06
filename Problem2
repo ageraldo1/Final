@@ -1,0 +1,93 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.gsu.exam;
+
+/**
+ *
+ * @author ageraldo1
+ */
+
+import java.util.Scanner;
+import java.util.Stack;
+
+
+public class Problem2 {
+    public static void main (String args[]) {
+        
+         final int MAX_STUDENTS=5;
+         boolean flag = false;
+         int count = 1;
+         int nr_absent;
+         
+         Stack<String> student = new Stack<>();
+         Stack<Integer> absent = new Stack<>();
+         
+         Scanner input = new Scanner(System.in);
+         
+         do {
+             System.out.print ("Please enter the name for student #" + count + "...: ");
+             student.push(input.next());
+             
+             System.out.print ("Please enter the number of absent days for student #" + count + "...: ");
+             
+             try {
+                nr_absent  = Integer.parseInt(input.next());
+                
+                absent.push(nr_absent);
+                count ++;                    
+                
+             } catch (NumberFormatException e ) {
+                System.out.println ("Invalid number !");
+             }             
+             
+             if ( count > MAX_STUDENTS ) {
+                 flag = true;
+             }
+         
+         } while ( flag == false);
+         
+         String studentName;
+         int NumberOfDaysAbsent;
+         
+         while  (!student.isEmpty()) {
+             
+             studentName = student.pop();
+             NumberOfDaysAbsent = absent.pop();
+             
+             System.out.println ("Student Name...:" + studentName);
+             
+             if ( NumberOfDaysAbsent < 5 ) { 
+                 System.out.println ("ExcellentRecord");
+                 
+             } else if ( NumberOfDaysAbsent < 10 && NumberOfDaysAbsent > 5)  {
+                 System.out.println ("NeedAttention");
+                 
+             } else if ( NumberOfDaysAbsent < 15 && NumberOfDaysAbsent > 10) {
+                 System.out.println ("PoorAttendance");
+             }
+                     
+             
+             
+         }
+         
+         
+    }
+    
+    public static int totalAbsent(Stack<Integer> a) {
+        
+        int total=0;
+        
+         while (!a.isEmpty()) {
+             total = total + a.pop();
+         }
+        
+         return total;
+    }
+    
+    
+    
+    
+}
