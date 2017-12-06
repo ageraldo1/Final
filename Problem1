@@ -1,0 +1,84 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.gsu.exam;
+
+/**
+ *
+ * @author ageraldo1
+ * 
+ * 
+ */
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+
+public class Problem1 {
+    
+    public static void main(String[] args) {
+        
+       ArrayList<Integer> primeNumbers = new ArrayList<>();
+       String value = null;
+       int n;
+       boolean flag = false;
+       
+        
+       Scanner input = new Scanner(System.in);
+        
+        do {
+            System.out.print ("Please enter a number between 0-10 or type E to exit....: ");            
+            value = input.next();
+            
+            if ( value.toUpperCase().equals("E")) { 
+                flag = true;
+            } else { 
+                try {
+                    n = Integer.parseInt(value);
+                    
+                    if ( n >= 0 && n <=10 ) {
+                        
+                        if ( n > 1) {
+                            if ( isPrime(n) == true) {
+                                primeNumbers.add(n);
+                            }
+                            
+                        }
+                        
+                    } else { 
+                        System.out.println ("Invalid range");
+                    }
+                    
+                } catch (NumberFormatException e ) {
+                    System.out.println ("Invalid number !");
+                }                       
+            }
+            
+        } while ( flag == false );        
+        
+        
+        System.out.println ("Prime numbers...:" + primeNumbers);
+        
+    }
+    
+    public static boolean isPrime(int n) {
+        int sqrt = (int) Math.sqrt(n) + 1;
+        
+        for (int i = 2; i < sqrt; i++) {
+             if (n % i == 0) {
+                 return false;
+             }
+            
+        }
+        return true;
+
+
+        
+        
+    }
+  
+    
+    
+}
